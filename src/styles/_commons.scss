@@ -1,0 +1,77 @@
+* {
+    font-family: $font-primary;
+    color: $text-base-color;
+}
+  
+h1 {
+    font-size: 68px;
+    font-weight: 400;
+    @include mobileview {
+      font-size: 38px;
+    }
+}
+  
+h2 {
+    font-size: 50px;
+    font-weight: 400;
+    @include mobileview {
+        font-size: 28px;
+    }
+}
+  
+h3 {
+    font-size: 38px;
+    font-weight: 400;
+    @include mobileview {
+        font-size: 24px;
+    }
+}
+  
+h4 {
+    font-size: 28px;
+    font-weight: 400;
+    @include mobileview {
+        font-size: 20px;
+    }
+}
+  
+p {
+    font-size: 16px;
+}
+  
+a {
+    color: $text-base-color;
+    font-size: 16px;
+    font-weight: 400;
+    text-decoration: none;
+    &:hover {
+      color: #006CB7;
+    }
+}
+
+img, iframe {
+	max-width: 100%;
+	height: auto;
+}
+
+.container { 
+    width: 100%; 
+    max-width: $grid-max; 
+    margin: 0 auto; 
+}
+
+.no-display {
+	display: none;
+}
+
+.no-display-desktop { 
+    display: none; 
+}
+
+.display-only-desk { 
+    display: block !important; 
+}
+
+.display-only-mobile { 
+    display: none !important; 
+}

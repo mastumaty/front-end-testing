@@ -10,16 +10,22 @@ import ThemesLink from './ThemesLink';
 
 
 const Header = ({ themes, onClick }) => {
+    function handleLink(e) {
+        e.preventDefault();
+    }
   return (
     <div id='header'>
         <div className="container">
             <div className="header-content">
-                <a className='logo' href="#">
-                    <img src={logo} alt="" />
-                </a>
-                <button className='categories-link' onClick={onClick}>
-                    <img src={icon} alt="" />
-                </button>
+                <div className="logo-links">
+                    <a className='logo' href="#">
+                        <img src={logo} alt="" />
+                    </a>
+                    <button className='categories-link' onClick={onClick}>
+                        <img src={icon} alt="" />
+                        <span>Categories</span>
+                    </button>
+                </div>
                 <div className="theme-links">
                     {themes.map((theme) => (
                         <ThemesLink
@@ -28,15 +34,15 @@ const Header = ({ themes, onClick }) => {
                     ))}
                 </div>
                 <div className="info-links">
-                    <a className='contact-link' href="#">
+                    <a className='contact-link' href="#" onClick={handleLink}>
                         <img src={contact} alt="" />
                         <span>Contact Us</span>
                     </a>
-                    <a className='request-link' href="#">
+                    <a className='request-link' href="#" onClick={handleLink}>
                         <img src={request} alt="" />
                         <span>Request</span>
                     </a>
-                    <a className='search-link' href="#">
+                    <a className='search-link' href="#" onClick={handleLink}>
                         <img src={search} alt="" />
                         <span>Search</span>
                     </a>

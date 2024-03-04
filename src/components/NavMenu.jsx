@@ -47,17 +47,17 @@ const NavMenu = ({ themes, active, onClick }) => {
                 <img src={home} alt="" />
                 <span>Home</span>
             </a>
-            <a className='contact-link' href="#">
-                <img src={contact} alt="" />
-                <span>Contact Us</span>
-            </a>
             <a className='request-link' href="#">
                 <img src={request} alt="" />
                 <span>Request</span>
             </a>
+            <a className='contact-link' href="#">
+                <img src={contact} alt="" />
+                <span>Contact Us</span>
+            </a>
           </div>
           <div className="nav-themes">
-            <span className='separator'>Themes</span>
+            <div className='separator'><span>Themes</span></div>
             <div className="nav-theme-links">
               {themes.map((theme) => (
                 <ThemesLink
@@ -69,7 +69,11 @@ const NavMenu = ({ themes, active, onClick }) => {
         </div>
         <div className="theme-images">
           {themesImg.map((theme) => (
-              <img src={theme.image} alt={theme.title}></img>
+            <div className="theme-item">
+              <a className='theme-link' href="#">
+                <img src={theme.image} alt={theme.title}></img>
+              </a>
+            </div>
           ))}
         </div>
     </div>

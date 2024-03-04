@@ -1,0 +1,26 @@
+.theme-container {
+    .theme-separator {
+        text-align: left;
+        position: relative;
+        h4 {
+            text-transform: uppercase;
+            line-height: 42px;
+            margin: 0;
+        }
+        .separator {
+            @include size(calc(100vw - 15px),1px);
+            @include absolutecenter('x');
+        }
+        .theme-desc {
+            color: #525252;
+            font-size: 16px;
+            line-height: 28px;
+            @include desktopview {
+                @include absolute($position-default,0,5px);
+            }
+        }
+    }
+    .category-container {
+        
+    }
+}

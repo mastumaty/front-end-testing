@@ -1,9 +1,15 @@
 import React from 'react';
 
-const Categories = ({ image, title, desc, themekey, themeid }) => {
+const Categories = ({ id, image, title, desc, themekey, themeid }) => {
+  var orientation = "align-left";
+  
   if (themekey == themeid) {
+    console.log(id);
+    if(id % 2) {
+      orientation = 'align-right';
+    }
     return (
-      <div className='category-container'>
+      <div className={'category-container ' + orientation}>
         <div className="category-image">
           <img src={image} alt="" />
         </div>

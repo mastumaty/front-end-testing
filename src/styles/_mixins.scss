@@ -19,11 +19,6 @@
 	}
 }
 
-@mixin size($width, $height: $width) {
-	width: $width;
-	height: $height;
-}
-
 // --------------------------------------------------
 // Flexbox SASS mixins
 // The spec: http://www.w3.org/TR/css3-flexbox
@@ -168,4 +163,134 @@
 	-moz-align-self: $align;
 	-ms-align-self: $align;
 	align-self: $align;
+}
+
+@mixin css3-prefix($property, $value) {
+	-webkit-#{$property}: #{$value};
+	-khtml-#{$property}: #{$value};
+	-moz-#{$property}: #{$value};
+	-ms-#{$property}: #{$value};
+	-o-#{$property}: #{$value};
+	#{$property}: #{$value};
+}
+
+@mixin opacity($opacity) {
+	opacity: $opacity;
+
+	$opacity-ie: $opacity * 100;
+
+	filter: alpha(opacity = $opacity-ie);
+}
+
+@mixin transition($args...) {
+	@include css3-prefix("transition", $args);
+}
+
+@mixin border-radius($size...) {
+	@include css3-prefix("border-radius", $size);
+}
+
+@mixin box-shadow($args...) {
+	@include css3-prefix("box-shadow", $args);
+}
+
+// generic transform
+@mixin transform($transforms) {
+	@include css3-prefix("transform", $transforms);
+}
+
+// rotate
+@mixin rotate($deg) {
+	@include transform(rotate(#{$deg}deg));
+}
+
+// scale
+@mixin scale($scale) {
+	@include transform(scale($scale));
+}
+
+// translate
+@mixin translate($x, $y) {
+	@include transform(translate($x, $y));
+}
+
+// Links Colors
+// ------------
+@mixin linkColor($link, $hover) {
+	color: $link;
+
+	&:hover, &:hover > * {
+		color: $hover;
+	}
+}
+
+// Advanced positioning
+// --------------------
+$position-default: null !default;
+
+@mixin position($type, $top: $position-default, $right: $position-default, $bottom: $position-default, $left: $position-default) {
+	position: $type;
+
+	$allowed_types: absolute relative fixed;
+
+	@if not index($allowed_types, $type) {
+		@warn "Unknown position: #{$type}.";
+	}
+
+	@each $data in top $top, right $right, bottom $bottom, left $left {
+		#{nth($data, 1)}: nth($data, 2);
+	}
+}
+
+@mixin absolute($top: $position-default, $right: $position-default, $bottom: $position-default, $left: $position-default) {
+	@include position(absolute, $top, $right, $bottom, $left);
+}
+
+@mixin relative($top: $position-default, $right: $position-default, $bottom: $position-default, $left: $position-default) {
+	@include position(relative, $top, $right, $bottom, $left);
+}
+
+@mixin fixed($top: $position-default, $right: $position-default, $bottom: $position-default, $left: $position-default) {
+	@include position(fixed, $top, $right, $bottom, $left);
+}
+
+@mixin pushauto {
+	margin-right: auto;
+	margin-left: auto;
+}
+
+%pushauto {
+	@include pushauto;
+}
+
+// Absolute Centering
+// ------------------
+@mixin absolutecenter($axis: "both") {
+	position: absolute;
+
+	@if $axis == "y" {
+		top: 50%;
+
+		@include transform(translateY(-50%));
+	}
+
+	@if $axis == "x" {
+		left: 50%;
+
+		@include transform(translateX(-50%));
+	}
+
+	@if $axis == "both" {
+		top: 50%;
+		left: 50%;
+
+		@include transform(translate(-50%, -50%));
+	}
+}
+
+// Sizing
+// ------
+@mixin size($width, $height: $width) {
+	width: $width;
+	height: $height;
 }

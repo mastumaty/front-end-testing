@@ -1,0 +1,145 @@
+#nav-menu {
+    background-color: #fff;
+    @include size(100%);
+    @include fixed(0,$position-default,$position-default,0);
+    z-index: 99;
+    @include transition(0.5s ease all);
+    &.nav-hide {
+        top: -1000px;
+    }
+    .nav-links {
+        float: left;
+        width: 100%;
+        padding: 10px 0;
+        @include desktopview {
+            padding: auto;
+            max-width: 25%;
+        }
+        .links-header {
+            display: block;
+            padding-left: 8vw;
+            margin-bottom: 60px;
+            & > * {
+                vertical-align: middle;
+            }
+            .close {
+                @include size(40px);
+                margin: 0 0 0 40px;
+                padding: 0;
+            }
+        }
+        .nav-info {
+            padding-right: 10%;
+            margin-bottom: 80px;
+            a {
+                display: block;
+                padding: 10px 0 10px 8vw;
+                margin-bottom: 5px;
+                background: #fff;
+
+                background: linear-gradient(to left, #ffffff 50%, #BBDCF5 50%) right;
+                background-size: 200%;
+                @include transition(.5s ease-out);
+                &:hover {
+                    background-position: left;
+                }
+                img {
+                    margin-right: 10px;
+                    vertical-align: middle;
+                }
+                span {
+                    vertical-align: middle;
+                    font-size: 28px;
+                    color: #000;
+                }
+            }
+        }
+        .nav-themes {
+            .separator {
+                position: relative;
+                margin-bottom: 20px;
+                &:before {
+                    content: '';
+                    background-color: #525252;
+                    @include size(50%,1px);
+                    max-width: 250px;
+                    z-index: -1;
+                    @include absolutecenter('y');
+                    left: 0;
+                }
+                span {
+                    font-size: 20px;
+                    font-weight: 300;
+                    background-color: #fff;
+                    padding: 0 20px;
+                    position: relative;
+                    z-index: 1;
+                    margin-left: calc(8vw - 20px);
+                }
+            }
+            .nav-theme-links {
+                display: block;
+                padding-right: 10%;
+                & > div {
+                    float: left;
+                    width: 100%;
+                    a {
+                        color: #000;
+                        font-size: 20px;
+                        display: block;
+                        padding: 9px 0 9px 8vw;
+                        margin-bottom: 5px;
+                        background: #fff;
+    
+                        background: linear-gradient(to left, #ffffff 50%, #BBDCF5 50%) right;
+                        background-size: 200%;
+                        @include transition(.5s ease-out);
+                        &:hover {
+                            background-position: left;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .theme-images {
+        width: 100%;
+        display: block;
+        @include desktopview {
+            float: right;
+            max-width: 75%;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+        }
+        .theme-item {
+            background-color: #fff;
+            text-align: center;
+            height: calc(100vh / 3);
+            @include box-shadow(0 0 0 1px #808080);
+            .theme-link {
+                @include size(100%);
+                display: inline-block;
+                position: relative;
+                overflow: hidden;
+                z-index: 1;
+                &:before {
+                    content: '';
+                    z-index: -1;
+                    @include opacity(0);
+                    @include size(100%);
+                    @include absolutecenter('both');
+                    background: url('./assets/img/cat-bg.png') rgba($blue,0.7);
+                    @include transition(0.5s ease);
+                }
+                &:hover {
+                    &::before {
+                        @include opacity(1);
+                    }
+                }
+                img {
+                    @include absolutecenter('both');
+                }
+            }
+        }
+    }
+}

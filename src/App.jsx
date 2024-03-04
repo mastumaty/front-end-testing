@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import BannerTop from './components/BannerTop';
 import Categories from './components/Categories';
 import NavMenu from './components/NavMenu';
+import ScrollToAnchor from './components/ScrollToAnchor';
 
 import banner1 from './assets/img/banner-01.png';
 import banner2 from './assets/img/banner-02.png';
@@ -26,7 +27,8 @@ function App() {
   const [isActive, setIsActive] = useState(false);
 
   const handleClick = event => {
-      setIsActive(current => !current);
+    document.getElementsByTagName("body")[0].classList.toggle("hidden");
+    setIsActive(current => !current);
   };
 
   const themes = [
@@ -59,9 +61,10 @@ function App() {
     <>
       <div>
         <Header themes={themes} onClick={handleClick} />
+        <div className="header-mobile-space display-only-mobile"></div>
         <NavMenu themes={themes} active={isActive} onClick={handleClick} />
         <BannerTop />
-        <div className="container">
+        <div id="page-content" className="container">
           {themes.map((theme) => (
             <ThemeBanners
               id={theme.id}

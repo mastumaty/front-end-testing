@@ -1,7 +1,7 @@
 #banner-top {
     width: 100%;
     position: relative;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
     .banner-image {
         .banner-placeholder {
             background-color: #B1B1B1;
@@ -61,6 +61,7 @@
                 vertical-align: middle;
             }
             img {
+                display: inline-block;
                 vertical-align: middle;
                 filter: brightness(0) invert(1);
                 margin-left: 40px;

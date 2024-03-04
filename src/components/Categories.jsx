@@ -1,4 +1,5 @@
 import React from 'react';
+import arrowright from '../assets/icons/arrow-right.svg';
 
 const Categories = ({ id, image, title, desc, themekey, themeid }) => {
   var orientation = "align-left";
@@ -9,8 +10,8 @@ const Categories = ({ id, image, title, desc, themekey, themeid }) => {
       orientation = 'align-right';
     }
     return (
-      <div className={'category-container ' + orientation}>
-        <div className="category-image">
+      <div className='category-container'>
+        <div className={"category-image " + orientation}>
           <img src={image} alt="" />
         </div>
         <div className="category-text">
@@ -18,7 +19,7 @@ const Categories = ({ id, image, title, desc, themekey, themeid }) => {
           <p>{desc}</p>
           <a className='button-details' href="#">
             <span>View details</span>
-            <img src="../assets/icons/chevron-right.svg" alt="" />
+            <img src={arrowright} alt="" />
           </a>
         </div>
     </div>

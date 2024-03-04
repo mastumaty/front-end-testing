@@ -5,11 +5,10 @@
     z-index: 99;
     @include transition(0.5s ease all);
     &.nav-hide {
-        top: -1000px;
+        top: -1050px;
     }
     .nav-links {
-        float: left;
-        width: 100%;
+        @extend %full;
         padding: 10px 0;
         @include desktopview {
             padding: auto;
@@ -81,8 +80,7 @@
                 display: block;
                 padding-right: 10%;
                 & > div {
-                    float: left;
-                    width: 100%;
+                    @extend %full;
                     a {
                         color: #000;
                         font-size: 20px;

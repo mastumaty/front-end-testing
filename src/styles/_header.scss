@@ -16,6 +16,9 @@
             .categories-link {
                 text-align: center;
                 @include linkColor($text-base-color,$blue);
+                img {
+                    margin: 6px auto;
+                }
                 span {
                     display: block;
                 }
@@ -24,6 +27,7 @@
         .theme-links {
             width: auto;
             gap: 30px;
+            text-align: center;
             @include flexbox;
             @include justify-content(space-between);
         }
@@ -34,6 +38,9 @@
             @include justify-content(space-between);
             & > a {
                 text-align: center;
+                img {
+                    margin: 10px auto;
+                }
                 span {
                     display: block;
                     font-size: 13px;

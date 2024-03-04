@@ -1,15 +1,26 @@
+#page-content {
+    padding-top: 80px;
+}
 .theme-container {
+    width: 100%;
+    display: inline-block;
+    position: relative;
+    &:not(:last-child) {
+        margin-bottom: 120px;
+    }
+    .separator {
+        @include size(calc(100vw - 15px),1px);
+        @include absolutecenter('x');
+        bottom: 0;
+    }
     .theme-separator {
+        @extend %full;
         text-align: left;
         position: relative;
         h4 {
             text-transform: uppercase;
             line-height: 42px;
             margin: 0;
-        }
-        .separator {
-            @include size(calc(100vw - 15px),1px);
-            @include absolutecenter('x');
         }
         .theme-desc {
             color: #525252;
@@ -21,6 +32,71 @@
         }
     }
     .category-container {
-        
+        width: 100%;
+        display: inline-block;
+        margin-bottom: 78px;
+        &:nth-last-child(2) {
+            margin-bottom: 0;
+        }
+        .category-image {
+            width: auto;
+            @include desktopview {
+                &.align-left {
+                    float: left;
+                    margin-left: -8vw;
+                    & + .category-text {
+                        float: right;
+                        text-align: right;
+                    }
+                }
+                &.align-right {
+                    float: right;
+                    margin-right: -8vw;
+                    & + .category-text {
+                        float: left;
+                    }
+                }
+            }
+        }
+        .category-text {
+            width: 600px;
+            max-width: 40%;
+            display: inline-block;
+            margin-top: 42px;
+            p {
+                font-size: 20px;
+                font-weight: 300;
+                line-height: 38px;
+                margin-bottom: 30px;
+            }
+            .button-details {
+                display: inline-block;
+                padding: 18px 40px;
+                border: 1px solid #000;
+                @include border-radius(37px);
+                @include transition(.5s ease);
+                &:hover {
+                    border-color: $blue;
+                    img {
+                        filter: none;
+                        @include translate(8px,0);
+                    }
+                }
+                span {
+                    font-size: 16px;
+                    line-height: 28px;
+                    vertical-align: middle;
+                    @include transition(.5s ease);
+                }
+                img {
+                    margin-left: 30px;
+                    display: inline-block;
+                    vertical-align: middle;
+                    position: relative;
+                    filter: brightness(0);
+                    @include transition(.5s ease);
+                }
+            }
+        }
     }
 }

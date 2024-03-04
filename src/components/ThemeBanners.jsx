@@ -22,6 +22,7 @@ const ThemeBanners = ({ id, name, color, desc, categories }) => {
                 themeid={id}
             />
         ))}
+        <div className={'separator ' + color}></div>
     </div>
   )
 }

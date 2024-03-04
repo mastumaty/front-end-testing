@@ -1,5 +1,5 @@
 .footer {
-    width: 100%;
+    @extend %full;
     text-align: center;
     padding: 20px 0;
     border-top: 1px solid #E0E0E0;

@@ -1,21 +1,23 @@
-import React from 'react'
+import React from 'react';
 
-const Categories = () => {
-  return (
-    <div className='category-container text-left'>
+const Categories = ({ image, title, desc, themekey, themeid }) => {
+  if (themekey == themeid) {
+    return (
+      <div className='category-container'>
         <div className="category-image">
-          <img src="../assets/img/banner-01.png" alt="" />
+          <img src={image} alt="" />
         </div>
         <div className="category-text">
-          <h3>Toys perfect for birthday gift-giving season in Spring</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas scelerisque nulla vitae mi scelerisque vulputate. Aenean ultrices leo eget lacus maximus, vitae feugiat.</p>
+          <h3>{title}</h3>
+          <p>{desc}</p>
           <a className='button-details' href="#">
             <span>View details</span>
             <img src="../assets/icons/chevron-right.svg" alt="" />
           </a>
         </div>
     </div>
-  )
+    )
+  }
 }
 
 export default Categories

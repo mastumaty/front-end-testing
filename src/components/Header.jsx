@@ -5,11 +5,11 @@ import icon from '../assets/img/icon.png';
 
 import contact from '../assets/icons/message-circle.svg';
 import request from '../assets/icons/shoppingbag.svg';
-import search from '../assets/img/icon.png';
+import search from '../assets/icons/search.svg';
 import ThemesLink from './ThemesLink';
 
 
-const Header = ({ themes }) => {
+const Header = ({ themes, onClick }) => {
   return (
     <div id='header'>
         <div className="container">
@@ -17,9 +17,9 @@ const Header = ({ themes }) => {
                 <a className='logo' href="#">
                     <img src={logo} alt="" />
                 </a>
-                <a className='categories-link' href="#">
+                <button className='categories-link' onClick={onClick}>
                     <img src={icon} alt="" />
-                </a>
+                </button>
                 <div className="theme-links">
                     {themes.map((theme) => (
                         <ThemesLink

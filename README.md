@@ -1,8 +1,13 @@
-# React + Vite
+# Teste Para Vaga Dev Front-End TBB
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+O projeto foi criado através do Vite.
+Para realizar o teste, é necessário: 
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Clonar o repositório;
+- Abrir a pasta do repositório em um terminal;
+- Utilize os seguintes comandos:
+```
+npm install
+npm run dev
+```
+- No terminal, aparecerá um link em azul seguido de "Local:". Segure ctrl e clique no link.

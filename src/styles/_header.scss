@@ -1,5 +1,6 @@
 #header {
     background-color: rgba(255,255,255,0.5);
+    backdrop-filter: blur(3px);
     @include size(100%,auto);
     @include fixed(0);
     z-index: 98;
@@ -36,6 +37,9 @@
             gap: 30px;
             @include flexbox;
             @include justify-content(space-between);
+            @include mobileview {
+                direction: rtl;
+            }
             & > a {
                 text-align: center;
                 img {

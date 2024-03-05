@@ -49,11 +49,11 @@ const NavMenu = ({ themes, active, onClick }) => {
             </a>
             <a className='request-link' href="#">
                 <img src={request} alt="" />
-                <span>Request</span>
+                <span>Requests</span>
             </a>
             <a className='contact-link' href="#">
                 <img src={contact} alt="" />
-                <span>Contact Us</span>
+                <span>Contact us</span>
             </a>
           </div>
           <div className="nav-themes">

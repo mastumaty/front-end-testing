@@ -64,16 +64,18 @@ function App() {
         <div className="header-mobile-space display-only-mobile"></div>
         <NavMenu themes={themes} active={isActive} onClick={handleClick} />
         <BannerTop />
-        <div id="page-content" className="container">
-          {themes.map((theme) => (
-            <ThemeBanners
+        <div className="container">
+          <div id="page-content">
+            {themes.map((theme) => (
+              <ThemeBanners
               id={theme.id}
               name={theme.name}
               color={theme.color}
               desc={theme.description}
               categories={categories}
-            />
-          ))}
+              />
+            ))}
+            </div>
         </div>
         <Footer />
       </div>

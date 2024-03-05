@@ -1,17 +1,24 @@
 #page-content {
-    padding-top: 80px;
+    @extend %full;
+    @include desktopview {
+        padding-top: 80px;
+    }
 }
 .theme-container {
-    width: 100%;
+    @extend %full;
     display: inline-block;
     position: relative;
     &:not(:last-child) {
         margin-bottom: 120px;
     }
     .separator {
-        @include size(calc(100vw - 15px),1px);
-        @include absolutecenter('x');
-        bottom: 0;
+        float: left;
+        @include size(100vw,1px);
+        @include desktopview {
+            @include size(calc(100vw - 15px),1px);
+            @include absolutecenter('x');
+            bottom: 0;
+        }
     }
     .theme-separator {
         @extend %full;
@@ -21,6 +28,9 @@
             text-transform: uppercase;
             line-height: 42px;
             margin: 0;
+            @include mobileview {
+                padding: 0 18px;
+            }
         }
         .theme-desc {
             color: #525252;
@@ -29,14 +39,24 @@
             @include desktopview {
                 @include absolute($position-default,0,5px);
             }
+            @include mobileview {
+                float: left;
+                max-width: 100%;
+                padding: 0 18px;
+                margin-top: 10px;
+                text-align: right;
+            }
         }
     }
     .category-container {
+        float: left;
         width: 100%;
-        display: inline-block;
         margin-bottom: 78px;
         &:nth-last-child(2) {
             margin-bottom: 0;
+            @include mobileview {
+                margin-bottom: 40px;
+            }
         }
         .category-image {
             width: auto;
@@ -59,15 +79,24 @@
             }
         }
         .category-text {
-            width: 600px;
-            max-width: 40%;
             display: inline-block;
-            margin-top: 42px;
+            @include desktopview {
+                width: 600px;
+                max-width: 40%;
+                margin-top: 42px;
+            }
+            @include mobileview {
+                padding: 0 18px;
+            }
             p {
                 font-size: 20px;
                 font-weight: 300;
                 line-height: 38px;
                 margin-bottom: 30px;
+                @include mobileview {
+                    font-size: 18px;
+                    line-height: 33px;
+                }
             }
             .button-details {
                 display: inline-block;

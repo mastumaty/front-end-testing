@@ -26,7 +26,7 @@ const Header = ({ themes, onClick }) => {
                         <span>Categories</span>
                     </button>
                 </div>
-                <div className="theme-links">
+                <div className="theme-links display-only-desk">
                     {themes.map((theme) => (
                         <ThemesLink
                             name={theme.name}
@@ -34,7 +34,7 @@ const Header = ({ themes, onClick }) => {
                     ))}
                 </div>
                 <div className="info-links">
-                    <a className='contact-link' href="#" onClick={handleLink}>
+                    <a className='contact-link display-only-desk' href="#" onClick={handleLink}>
                         <img src={contact} alt="" />
                         <span>Contact Us</span>
                     </a>

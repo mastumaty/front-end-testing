@@ -1,11 +1,14 @@
 #nav-menu {
     background-color: #fff;
-    @include size(100%);
+    @include size(100%, 100vh);
     @include fixed(0,$position-default,$position-default,0);
     z-index: 99;
     @include transition(0.5s ease all);
+    @include mobileview {
+        overflow-y: auto;
+    }
     &.nav-hide {
-        top: -1050px;
+        @include translate(0,-120%);
     }
     .nav-links {
         @extend %full;
@@ -18,7 +21,11 @@
             display: block;
             padding-left: 8vw;
             margin-bottom: 60px;
+            @include mobileview {
+                margin-bottom: 30px;
+            }
             & > * {
+                display: inline-block;
                 vertical-align: middle;
             }
             .close {
@@ -30,6 +37,9 @@
         .nav-info {
             padding-right: 10%;
             margin-bottom: 80px;
+            @include mobileview {
+                margin-bottom: 27px;
+            }
             a {
                 display: block;
                 padding: 10px 0 10px 8vw;
@@ -43,6 +53,7 @@
                     background-position: left;
                 }
                 img {
+                    display: inline-block;
                     margin-right: 10px;
                     vertical-align: middle;
                 }
@@ -50,10 +61,18 @@
                     vertical-align: middle;
                     font-size: 28px;
                     color: #000;
+                    @include mobileview {
+                        font-size: 20px;
+                    }
                 }
             }
         }
         .nav-themes {
+            @include mobileview {
+                float: left;
+                width: 100%;
+                margin-bottom: 40px;
+            }
             .separator {
                 position: relative;
                 margin-bottom: 20px;
@@ -65,6 +84,9 @@
                     z-index: -1;
                     @include absolutecenter('y');
                     left: 0;
+                    @include mobileview {
+                        width: 20%;
+                    }
                 }
                 span {
                     font-size: 20px;
@@ -74,6 +96,10 @@
                     position: relative;
                     z-index: 1;
                     margin-left: calc(8vw - 20px);
+                    @include mobileview {
+                        padding: 0 10px;
+                        margin-left: calc(10vw - 20px);
+                    }
                 }
             }
             .nav-theme-links {
@@ -101,6 +127,7 @@
         }
     }
     .theme-images {
+        float: left;
         width: 100%;
         display: block;
         @include desktopview {
@@ -109,17 +136,29 @@
             display: grid;
             grid-template-columns: repeat(3,1fr);
         }
+        @include mobileview {
+            margin-bottom: 50px;
+        }
         .theme-item {
             background-color: #fff;
             text-align: center;
             height: calc(100vh / 3);
             @include box-shadow(0 0 0 1px #808080);
+            @include mobileview {
+                float: left;
+                @include size(100%,auto);
+                @include box-shadow(0 0 0 1px #BBDCF5);
+            }
             .theme-link {
                 @include size(100%);
                 display: inline-block;
                 position: relative;
                 overflow: hidden;
                 z-index: 1;
+                @include mobileview {
+                    float: left;
+                    height: auto;
+                }
                 &:before {
                     content: '';
                     z-index: -1;
@@ -135,7 +174,13 @@
                     }
                 }
                 img {
-                    @include absolutecenter('both');
+                    @include desktopview {
+                        @include absolutecenter('both');
+                    }
+                    @include mobileview {
+                        margin: 0 auto;
+                        width: 84px;
+                    }
                 }
             }
         }
